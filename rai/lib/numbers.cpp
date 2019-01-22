@@ -81,7 +81,7 @@ bool rai::uint256_union::decode_account (std::string const & source_a)
 		{
 			if (ibanks_prefix)
 			{
-				auto i (source_a.begin () + (ibanks_prefix ? 7 : 5));
+				auto i (source_a.begin () + (ibanks_prefix ? 4 : 5));
 				if (*i == '1' || *i == '3')
 				{
 					rai::uint512_t number_l;
