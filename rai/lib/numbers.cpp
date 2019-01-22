@@ -76,12 +76,12 @@ bool rai::uint256_union::decode_account (std::string const & source_a)
 	if (!error)
 	{
 		auto ibanks_prefix (source_a[0] == 'i' && source_a[1] == 'b' && source_a[2] == 'a' && source_a[3] == 'n' && source_a[4] == 'k' && source_a[5] == 's' && (source_a[6] == '_' || source_a[6] == '-'));
-		error = (ibanks_prefix && source_a.size () != 64);
+		error = (ibanks_prefix && source_a.size () != 67);
 		if (!error)
 		{
 			if (ibanks_prefix)
 			{
-				auto i (source_a.begin () + (ibanks_prefix ? 4 : 5));
+				auto i (source_a.begin () + 7);
 				if (*i == '1' || *i == '3')
 				{
 					rai::uint512_t number_l;
