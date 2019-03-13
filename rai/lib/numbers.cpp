@@ -59,7 +59,7 @@ void rai::uint256_union::encode_account (std::string & destination_a) const
 		number_l >>= 5;
 		destination_a.push_back (account_encode (r));
 	}
-	destination_a.append ("_sknabi"); // ibanks_
+	destination_a.append ("_skcolbi"); // iblocks_
 	std::reverse (destination_a.begin (), destination_a.end ());
 }
 
@@ -75,13 +75,13 @@ bool rai::uint256_union::decode_account (std::string const & source_a)
 	auto error (source_a.size () < 5);
 	if (!error)
 	{
-		auto ibanks_prefix (source_a[0] == 'i' && source_a[1] == 'b' && source_a[2] == 'a' && source_a[3] == 'n' && source_a[4] == 'k' && source_a[5] == 's' && (source_a[6] == '_' || source_a[6] == '-'));
-		error = (ibanks_prefix && source_a.size () != 67);
+		auto iblocks_prefix (source_a[0] == 'i' && source_a[1] == 'b' && source_a[2] == 'l' && source_a[3] == 'o' && source_a[4] == 'c' && source_a[5] == 'k' && source_a[6] == 's' && (source_a[7] == '_' || source_a[7] == '-'));
+		error = (iblocks_prefix && source_a.size () != 68);
 		if (!error)
 		{
-			if (ibanks_prefix)
+			if (iblocks_prefix)
 			{
-				auto i (source_a.begin () + 7);
+				auto i (source_a.begin () + 8);
 				if (*i == '1' || *i == '3')
 				{
 					rai::uint512_t number_l;
