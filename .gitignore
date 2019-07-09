@@ -1,3 +1,6 @@
+.gitignore
+boost_1_66_0.tar.bz2
+boost_1_66_0/
 # Compiled Object files
 *.slo
 *.lo
